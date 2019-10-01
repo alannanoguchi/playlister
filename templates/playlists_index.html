@@ -2,46 +2,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Playlists</h1>
+<h1>Playlists</h1>
 
-    <a href='/playlists/new'>New Playlist</a>
+<a href='/playlists/new'>New Playlist</a>
 
-    {% for playlist in playlists %}
-        <h2>{{ playlist.title }}</h2>
-        <small>{{ playlist.description }}</small>
-    {% endfor %}
-
-<form method='POST' action='/playlists'>
-    <fieldset>
-        <legend>New Playlist</legend>
-        <!-- TITLE -->
-        <p>
-            <label for='playlist-title'>Title</label><br>
-            <input id='playlist-title' type='text' name='title' />
-        </p>
-
-        <!-- DESCRIPTION -->
-        <p>
-            <label for='description'>Description</label><br>
-            <input id='description' type='text' name='description' />
-        </p>
-
-        <!-- VIDEO LINKS -->
-        <p>
-            <label for='playlist-videos'>Videos</label><br>
-            <p>Add videos in the form of 'https://youtube.com/embed/KEY'. Separate with a newline.</p>
-            <textarea id='playlist-videos' name='videos' rows='10'></textarea>
-        </p>
-        <p>
-            <!-- <input type="range">Rating<name="rating" min="0" max="5"> -->
-            <label for="rating">Rating:</label>
-            <input type="number" name="rating" id="rating" min="1" max="5">
-        </p>
-    </fieldset>
-
-    <!-- BUTTON -->
-    <p>
-        <button type='submit'>Save Playlist</button>
-    </p>
-</form>
+{% for playlist in playlists %}
+    <h2><a href='/playlists/{{ playlist._id }}'>{{ playlist.title }}</a></h2>
+    <small>{{ playlist.description }}</small>
+{% endfor %}
 {% endblock %}
