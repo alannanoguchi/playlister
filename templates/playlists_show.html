@@ -3,8 +3,8 @@
 
 {% block content %}
 <a href='/'>Back to Home</a>
-<div class='row'>
-    <div class='col-sm-6 col-sm-offset-3'>
+<div class='row d-flex justify-content-center'>
+    <div class='col-sm-5.2 col-sm-offset-3 text-center'>
         <h1>{{ playlist.title }}</h1>
         {% if playlist.created_at %}
         <p class='text-muted'>Created on {{ playlist.created_at.strftime('%A, %d %B, %Y') }}
